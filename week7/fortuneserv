@@ -1,0 +1,15 @@
+service fortune-serv
+{
+type = UNLISTED
+flags = NOLIBWRAP
+port = 4545
+protocol = tcp
+socket_type = stream
+wait = no
+user = penguin
+server = /usr/games/fortune
+log_on_failure += USERID
+disable = no
+log_on_success += HOST DURATION USERID
+log_type = SYSLOG local1
+}

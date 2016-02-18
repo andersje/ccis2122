@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>Linux Admin 2 Lab for week 7:  Various network services</title>
+</head>
+<body>
+<h4>Name:</h4><ol class='worksheet'>
+<li>(5 points)  The instructor is sharing the <span class='unix'>/shared</span> directory from his machine.  Configure it to mount automatically on your system</li>
+<li>Show the command to mount the instructor's NFS shared directory to /mnt/instructor</li>
+<li>(2 points) Why are some files in the instructor's shared directory owned by YOUR useraccount?<br /></li>
+<li>(2 points) What entry, in <em>/etc/fstab</em> would cause the above NFS share to be mounted automatically at system boot?<br /></li>
+<li>(3 points) Create a directory named <span class='unix'>/public</span>, and share it to the entire class network</li>
+<li>Show the entry you put into /etc/exports to complete the previous question:<br /><br /></li>
+<li>(3 points) List 3 options available for the <em>nfs</em> filesystem, and explain what they mean (I suggest looking at the man page for mount)<br /><br /><br /></li>
+<li>(3 points) Use TCP wrappers to block <span class='unix'>sshd</span> access to your machine from any machine on the <span class='unix'>10.215.0.0/16</span> network</li>
+<li>(5 points) Configure FTP to give anonymous access to <span class='unix'>/public</span> as well</li>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>a very basic firewall</title>
+</head>
+<body>
+<ul class="lectureslide">
+ 
+								<pre class="bigger">
+#!/bin/bash										  
+#poormans firewall script
+INT=eth0
+
+/sbin/modprobe ip_tables
+# ensure that all necessary modules are loaded into the kernel
+# what do they do?  
+# ip_tables is so that the iptables tool can adjust certain
+# kernel parameters
+
+/sbin/iptables -P INPUT ACCEPT
+/sbin/iptables -F INPUT
+
+# set policy for the INPUT chain to be accept, and then 
+# flush all rules
+
+/sbin/iptables -P OUTPUT ACCEPT
+/sbin/iptables -F OUTPUT      
+
+# set OUTPUT to be accept, and flush all rules
+
+/sbin/iptables -P FORWARD DROP
+/sbin/iptables -F FORWARD    
+
+# set FORWARD chain to drop everything, unless told differently
+# then flush all rules
+
+# Voila.  We've set some rules, but we aren't doing anything useful
+# at all.  Why?  We're allowing ALL traffic to be output, and all
+# traffic to be input.  That's pretty poor filtering in anyone's book.
+</pre>
+
+<a class="pagelink" href="slide6.html">NEXT</a><br />
+
+<a class="pagelink" href="slide4.html">PREVIOUS</a><br />
+
+<a class="pagelink" href="../index.html">Master Index</a><br />
+
+</body>
+</html>

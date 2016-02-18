@@ -1,0 +1,198 @@
+body {
+	background-color: white;
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 14px;
+	color: #000011;
+}
+
+a {
+	font-family: Arial, Verdana, sans-serif; 
+	background-color: white;
+	color: #483D8B; 
+	text-decoration: underline;
+}
+
+a:hover { 
+	font-family: Arial, Verdana, sans-serif; 
+	color: #A52A2A; 
+	background-color: #FAEBD7;
+	text-decoration: underline;
+}
+
+a.pagelink {
+	font-family: Arial, Verdana, sans-serif; 
+	font-size: 24px; 
+	color: #483D8B; 
+	background-color: white;
+	text-decoration: underline;
+}
+
+h1 { 
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 32px;
+	color: #A52A2A ;
+	background-color: white;
+}
+h2 { 
+	font-family: Arial, Verdana, sans-serif; 
+	font-size: 24px; 
+	color: #A52A2A ;
+	background-color: white;
+}
+
+h6 { font-family: Arial, Verdana, sans-serif; 
+	font-size: 10px; 
+	color: #A52A2A; 
+	border-style: groove; 
+	width: 50%; 
+	text-align: center; 
+	margin-left: 25%;
+	background-color: white;
+}
+
+hr { 
+	color:black; 
+	background-color:#EEEEEE; 
+	width:90%; 
+	height:2px; 
+}
+
+li { font-size: 12px; color: black; 
+	background-color: white;
+}
+
+ol.worksheet li { 
+	font-size: 15px; 
+	color: black;
+	background-color: white;
+	padding: 10px;
+}
+
+
+
+.note {
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 10px;
+	color: purple;
+	background-color: white;
+	font-weight: bold;
+} 
+
+.lecturepoint {
+	font-family: Arial, Verdana, sans-serif;
+	color: black;
+	background-color: white;
+	font-size: 24px;
+	margin-bottom: 3px;
+	margin-top: 3px;
+	margin-left: 5%;
+}
+
+.bigger {
+	font-size: 24px;
+}
+
+ul.lectureslide {
+	list-style: none;
+}
+
+ul.lectureslide li {
+	font-family: Arial, Verdana, sans-serif;
+	color: black;
+	background-color: white;
+	font-size: 24px;
+	margin-bottom: 3px;
+	margin-top: 3px;
+	margin-left: 8px;
+	 background-image: url(http://linux.angelar.com/php/bullet.gif);
+	 background-repeat: no-repeat;
+	 background-position: 0 .8em;
+	 padding-left: .6em;
+}
+
+ol.lectureslide li {
+	font-family: Arial, Verdana, sans-serif;
+	color: black;
+	background-color: white;
+	font-size: 24px;
+	margin-bottom: 3px;
+	margin-top: 3px;
+	margin-left: 8px;
+	background-image: none;
+} 
+
+ul.linklist {
+	list-style: none;
+}
+
+ul.linklist li {
+	list-style: none;
+	font-size: 14px;
+	margin-bottom: 2px;
+	margin-top: 2px;
+	margin-left: 4px;
+}
+
+ul.biglinklist {
+	list-style: none;
+}
+
+ul.biglinklist li {
+	list-style: none;
+	font-size: 24px;
+	margin-bottom: 3px;
+	margin-top: 3px;
+	margin-left: 8px;
+}
+
+.inverse-mono { 
+	font-family: monospace;
+	background-color: black;
+	color: white;
+}
+
+
+.unix { 
+	font-family: monospace;
+	color: black;
+	background-color: white;
+	font-weight: bold;
+}
+
+table.unix th {
+	font-family: monospace;
+	font-style: italic;
+	color: red;
+	background-color: white;
+	font-weight: bold;
+}
+
+.classlinks {
+   font-family: Arial, Verdana, sans-serif;
+	font-size: 14px;
+	color: #00008B;
+	text-align: left;
+	position: static;
+	width: 185px;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	border-style: solid;
+}
+
+.main {
+   font-family: Arial, Verdana, sans-serif;
+	font-size: 14px;
+	color: #00008B;
+	text-align: left;
+	position: absolute;
+	top: 0px;
+	left: 205px;
+	right: 0px;
+	bottom: 0px;
+	margin-top: 0px;
+	border-style: none;
+}
+
+

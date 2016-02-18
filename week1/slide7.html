@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>chkconfig</title>
+</head>
+<body>
+<ul class='lectureslide'>
+<li>chkconfig can control service startup</li>
+<li><span class='unix'>chkconfig --list</span> displays all(most) daemons &amp; status</li>
+<li><span class='unix'>chkconfig --list <i>DAEMON</i></span> displays a single daemon's status</li>
+<li>to use chkconfig to turn off sendmail in level 3:<br />
+	<span class='unix'>chkconfig --level 3 sendmail off</span></li>
+<li>to use chkconfig to turn off sendmail in levels 3,4 &amp; 5:<br /> <span class='unix'>chkconfig --level 345 sendmail off</span></li>
+<li>to turn on sendmail for level 4 &amp; 5:<br /> <span class='unix'>chkconfig --level 45 sendmail on</span></li>
+<li>requires that the startup script exist in <span class='unix'>/etc/rc.d/init.d/</span></li>
+
+<a class="pagelink" href="slide8.html">NEXT</a><br />
+
+<a class="pagelink" href="slide6.html">PREVIOUS</a><br />
+
+<a class="pagelink" href="../index.html">Master Index</a><br />
+
+</body>
+</html>
+

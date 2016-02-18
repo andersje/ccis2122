@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>Filesharing, the *nix way</title>
+</head>
+<body>
+<ul class='lectureslide'>
+<li>NFS has been common since 1989.</li>
+<li>UDP, RPC</li>
+<li>IP-based security:  weak</li>
+<li>assumptions:  UID 501 there == UID 501 here</li>
+<li><a href='./exports'>/etc/exports</a> contains directories we are sharing</li>
+<li>to access a shared directory on another machine:<br /><span class='unix'>mount -t nfs othermachine:/dirname /mnt/somedir</span></li>
+<li>umount takes the directory offline.</li>
+<li>permanent entries go in /etc/<a href='fstab'>fstab</a></li>
+<li><span class='unix'>exportfs</span> or <span class='unix'>service nfs restart</span> to make exported changes effective</li>
+<li>mounting host must be listed in <span class='unix'>/etc/hosts</span></li>
+
+<a class="pagelink" href="slide2.html">NEXT</a><br />
+
+<a class="pagelink" href="index.html">INDEX</a><br />
+
+<a class="pagelink" href="../index.html">Master Index</a><br />
+
+</body>
+</html>

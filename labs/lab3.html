@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>Linux Admin 2 Lab for week 3:  DNS</title>
+</head>
+<body>
+<h4>Name:</h4><ol class='worksheet'>
+<li>(10 points)  Set up DNS so that you are master of the domain ccis2122.com.  Be sure to set up definitions for a webserver (www), a mail server (mail), and an entry for every users in the class, using their first name.  The instructor's machine, at the IP Address on the board, should be set up as jeremy.ccis2122.com .  You should be able to use the information you placed in your /etc/hosts file as a source of name-to-IP address mappings.  Get Instructor Sign Off.</li>
+<li>What entry must be included in /etc/resolv.conf so that your machine will check the local DNS server?<br /><p><br /><p></li>
+<li>What is the purpose of the nsswitch.conf file?<br /><p><br /><p></li>
+<li>What is a caching-only name server?<br /><p><br /><p></li>
+<li>What are the IP addresses and names of two root DNS servers?<br /><p><br /><p></li>
+<li>(6 points) Set up DNS so that you are also master of the linux2.htc-epc.org.  It should have the same terminal IP octets, but be on the 192.168.44.0/24 network.  Get instructor sign-off</li>
+<li>Which command will query a nameserver for an MX record?</li>
+<li>Show the syntax of the command to lookup the MX record for hennepintech.edu:</li>
+<li>Using a different command than those above, look up the IP address associated with www.hennepintech.edu.  Show the syntax of the command you used:</li>
+<li>Show the command to find the registrant of hennepintech.edu:</li>
+<li>Show the command to find the owner of the netblock which contains the IP address 69.6.25.35:</li>
+<p><b>Extra Credit</b>:  (5 points) Configure your nameserver such that it forwards DNS lookups for all unknown zones to 207.171.71.71.  Hint:  lookup DNS forwarders.  Get instructor sign-off
+</body>
+</html>

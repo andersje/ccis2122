@@ -1,0 +1,5 @@
+#format
+#DIRECTORY MACHINE/NETWORK(option1,option2)
+# 'man exports' for more detail
+#
+/home		191.168.1.0/24(rw,sync,no_root_squash)

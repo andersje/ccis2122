@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>mounting Samba shares using the mount command</title>
+</head>
+<body>
+<ul class='lectureslide'>
+<li>smbclient is all well and good, but limited</li>
+<li><span class='unix'>mount</span> command treats smb/cifs shares much like NFS shares</li>
+<li><span class='unix'>mount -t cifs //servername/sharename /localdir -o username=someuser</span></li>
+<li><span class='unix'>-t cifs</span> lets mount know it's dealing with an SMB/CIFS share</li>
+<li><span class='unix'>//servername/sharename</span> is the same server/share name that we\'d use with smbclient</li>
+<li><span class='unix'>/localdir</span> is the mountpoint for the share</li>
+<li>finally, <span class='unix'>-o username=someuser</span> specifies that we must authenticate as <b>someuser</b></li>
+<li>similar entries can also be put in /etc/fstab -- if a password is required, be sure to specify it, or your system may not boot properly</li>
+
+<a class="pagelink" href="index.html">INDEX</a><br />
+
+<a class="pagelink" href="slide7.html">PREVIOUS</a><br />
+
+<a class="pagelink" href="../index.html">Master Index</a><br />
+
+</body>
+</html>

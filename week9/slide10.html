@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>Delivering email to clients</title>
+</head>
+<body>
+<ul class='lectureslide'>
+<li>  People love GUI mail clients</li>
+<li>  POP3 vs. IMAP</li>
+<li>only use POP3S or IMAPS</li>
+<li>dovecot is a good server:  yum install dovecot</li>
+<li>dovecot needs minor tweaking:  see <a href='http://wiki.dovecot.org/QuickConfiguration'>QuickConfig guide</a></li>
+<li>configure user mail location by uncommenting the line:
+<pre>
+mail_location = mbox:~/mail:INBOX=/var/mail/%u
+</pre> 
+in the file /etc/dovecot/conf.d/10-mail.conf</li>
+<li>dovecot logs things in <b>/var/log/maillog</b></li>
+<li>dovecot is restarted with <b>/etc/init.d/dovecot restart</b></li>
+
+<a class="pagelink" href="slide11.html">NEXT</a><br />
+
+<a class="pagelink" href="slide9.html">PREVIOUS</a><br />
+
+<a class="pagelink" href="../index.html">Master Index</a><br />
+
+</body>
+</html>

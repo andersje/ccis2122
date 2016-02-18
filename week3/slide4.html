@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>your reverse lookup file</title>
+</head>
+<body>
+	
+<pre class="bigger">
+$TTL 86400
+@         0       IN       SOA    ns.andersand.com. root.ns.andersand.com. (
+                        1         ; Serial
+                        28800     ; Refresh
+                        14400     ; Retry
+                        604800    ; Expire
+                        86400)     ; Minimum TTL
+          0       IN       NS     ns.andersand.com.
+1         0       IN       PTR    ns.andersand.com.
+2         0       IN       PTR    mail.andersand.com.
+3         0       IN       PTR    webbie.andersand.com.
+8         0       IN       PTR    thor.andersand.com.
+9         0       IN       PTR    mjolnir.andersand.com.
+10        0       IN       PTR    gungnir.andersand.com.
+
+;Remember:  Only one name should map to each IP, and only the last octet
+;will (generally) go in the first column.  Also, note the period at the
+;end of each name
+</pre>	
+
+<a class="pagelink" href="slide5.html">NEXT</a><br />
+
+<a class="pagelink" href="slide3.html">PREVIOUS</a><br />
+
+<a class="pagelink" href="../index.html">Master Index</a><br />
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>What is this thing they call DNS?</title>
+</head>
+<body>
+<ul class="lectureslide">
+<li>DNS: a way of having one machine be an expert on one or more domain names, so every user is spared the toil of adding machine entries to their /etc/hosts files</li>
+<li>BIND: Berkely Internet Name Daemon, the most common DNS software server in use </li>
+<li>What if your server does not know?  Check the master!</li>
+<li><span class='unix'>/etc/nsswitch.conf</span> controls order of checking</li>
+<li>We'll change 1 file and create 2 today:<br />
+					  <span class='unix'>/etc/named.conf<br />
+					  /var/named/named.COMPANYNAME<br />
+					  /var/named/named.COMPANYNAME-rev<br /></span></li>
+
+<a class="pagelink" href="slide2.html">NEXT</a><br />
+
+<a class="pagelink" href="index.html">INDEX</a><br />
+
+<a class="pagelink" href="../index.html">Master Index</a><br />
+
+</body>
+</html>

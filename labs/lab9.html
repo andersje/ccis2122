@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>Linux Admin 2 Lab for week 9:  sendmail</title>
+</head>
+<body>
+<h4>Name:</h4><ol class='worksheet'>
+<li>(10 pts) configure sendmail such that it can successfully receive mail from the instructor's workstation. Set up accounts for all students in the class, and for the instructor (username: jeremy). Make sure that your machine is listed as the MX relay for ccis2122.com. Get Instructor sign-off</li>
+<li>What entry in /etc/mail/sendmail.mc will force a domain name in the /etc/mail/sendmail.cf file?</li>
+<li>What command regenerates the sendmail.cf file from sendmail.mc?</li>
+<li>What file is used as input for the command newaliases?</li>
+<li>When would entries in /etc/mail/local-host-names be required?</li>
+<li>What is a milter?</li>
+<li>What is /etc/mail/access used for?</li>
+<li>What is the primary configuration file of dovecot?</li>
+<li>(4 points) Configure dovecot so that it is listening for only pop3s and imaps traffic.  Get instructor sign-off.</li>
+<li>(2 points) Generate custom certificates for your dovecot server.  Get Instructor sign-off.</li>
+<li>(2 points) pick 4 directives from /etc/mail/sendmail.mc and give a description of them</li>
+<h3>Extra Credit</h3><li>(5 points) Configure SMTP AUTH so that users can only send mail if they have successfully authenticated over an encrypted (e.g. TLS or SSL) connection.  Get Instructor sign-off.</li>
+<li>(5 points) Document how you configured SMTP AUTH.</li>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>a very basic firewall</title>
+</head>
+<body>
+<ul class="lectureslide">
+ 
+								<pre class="bigger">
+#!/bin/bash
+#bits are shamelessly cobbled from the IPTables howto
+INTERNAL_NET="192.168.1.0/24"
+INTERNAL_INT="eth0"
+EXTERNAL_INT="eth1"
+ANYWHERE="0.0.0.0/0"
+FWVER="jeremy-2.0"
+IPTABLES=/sbin/iptables
+IFCONFIG=/sbin/ifconfig
+BROADCAST_SRC="0.0.0.0"
+BROADCAST_DEST="255.255.255.255"
+GREP=/bin/grep
+AWK=/usr/bin/awk
+SED=/bin/sed
+EXTERNAL_IP="`$IFCONFIG $EXTERNAL_INT | $GREP 'inet addr' | $AWK '{print $2}' | $SED -e 's/.*://'`"
+INTERNAL_IP="`$IFCONFIG $INTERNAL_INT | $GREP 'inet addr' | $AWK '{print $2}' | $SED -e 's/.*://'`"
+# this bit of voodoo grabs the IP address for each interface automatically
+
+echo 1 > /proc/sys/net/ipv4/ip_forward
+#without this, we can't forward packets from one interface to the next.
+
+echo "loading IPTABLES rules\n"
+echo "   External Interface:  $EXTERNAL_INT"
+echo "   Internal Interface:  $INTERNAL_INT"
+echo "   clearing any existing rules and setting default policy.."
+echo "1" > /proc/sys/net/ipv4/ip_always_defrag
+
+echo "  Clearing any existing rules and setting default policy to DROP.."
+$IPTABLES -P INPUT DROP  
+$IPTABLES -F INPUT 
+$IPTABLES -P OUTPUT DROP  
+$IPTABLES -F OUTPUT 
+$IPTABLES -P FORWARD DROP  
+$IPTABLES -F FORWARD 
+$IPTABLES -F -t nat
+
+
+if [ -n "`$IPTABLES -L | $GREP drop-and-log-it`" ]; then
+	$IPTABLES -F drop-and-log-it
+fi
+# if a drop-and-log-it chain exists, flush the rules
+
+# Delete all User-specified chains
+$IPTABLES -X
+#
+# Reset all IPTABLES counters
+$IPTABLES -Z
+
+echo "  Creating a drop-and-log chain.."
+$IPTABLES -N drop-and-log-it
+$IPTABLES -A drop-and-log-it -j LOG --log-level warn 
+$IPTABLES -A drop-and-log-it -j DROP
+# To stop logging things, comment out the line that has the -j LOG in it.
+
+echo -e "\n   - Loading INPUT rulesets"
+
+/sbin/modprobe iptable_nat
+/sbin/modprobe ip_nat_ftp
+#allow passive/active FTP to work properly for clients
+
+# loopback interfaces are valid.
+#   -- refusing traffic from loopback is seriously bad juju
+$IPTABLES -A INPUT -i lo -s $ANYWHERE -d $ANYWHERE -j ACCEPT
+
+# local interface, local machines, going ANYWHERE is valid
+#
+$IPTABLES -A INPUT -i $INTERNAL_INT -s $INTERNAL_NET -d $ANYWHERE -j ACCEPT
+
+$IPTABLES -A INPUT -i $EXTERNAL_INT -s 192.203.136.0/24 -d $ANYWHERE -j DROP
+# due to generally bad behavior on their part, any traffic coming from 
+# cod.edu's network is silently discarded.
+
+# remote interface, claiming to be local machines, IP spoofing, get lost
+#
+$IPTABLES -A INPUT -i $EXTERNAL_INT -s $INTERNAL_NET -d $ANYWHERE -j drop-and-log-it
+
+# Allow any related traffic coming back to the MASQ server in
+#
+$IPTABLES -A INPUT -i $EXTERNAL_INT -s $ANYWHERE -d $EXTERNAL_IP -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# DHCPd - Enable the following lines if you run an INTERNAL DHCPd server
+#
+$IPTABLES -A INPUT -i $INTERNAL_INT -p tcp --sport 68 --dport 67 -j ACCEPT
+$IPTABLES -A INPUT -i $INTERNAL_INT -p udp --sport 68 --dport 67 -j ACCEPT
+
+$IPTABLES -A INPUT -i $EXTERNAL_INT -p tcp -s 10.41.96.1 --sport 67 --dport 68 -j ACCEPT
+$IPTABLES -A INPUT -i $EXTERNAL_INT -p udp -s 10.41.96.1 --sport 67 --dport 68 -j ACCEPT
+logger "DHCPd service enabled in firewall"
+
+# Various server software which must be accessible from the outside
+#
+# active ports:  22 for opensshd, 25 for smtp, 80 for WWW
+# 993 = imaps 995 = pop3s, 443 for https, 993 for IMAPS
+for port in 22 25 80 443 993; do
+	echo -e "      - Allowing EXTERNAL access to port $port \n"
+	$IPTABLES -A INPUT -i $EXTERNAL_INT -p tcp -s $ANYWHERE -d $EXTERNAL_IP --dport $port -j ACCEPT
+	$IPTABLES -A INPUT -i $EXTERNAL_INT -p udp -s $ANYWHERE -d $EXTERNAL_IP --dport $port -j ACCEPT
+done
+
+#echo "setting rule to log all unknown probes"
+$IPTABLES -A INPUT -s $ANYWHERE -d $ANYWHERE -j drop-and-log-it
+
+echo -e "   - Loading OUTPUT rulesets"
+#output rulesets are where one could do egress filtering.
+
+# loopback interface is valid.
+$IPTABLES -A OUTPUT -o lo -s $ANYWHERE -d $ANYWHERE -j ACCEPT
+
+# local interfaces, any source going to local net is valid
+$IPTABLES -A OUTPUT -o $INTERNAL_INT -s $EXTERNAL_IP -d $INTERNAL_NET -j ACCEPT
+
+# local interface, any source going to local net is valid 
+$IPTABLES -A OUTPUT -o $INTERNAL_INT -s $INTERNAL_IP -d $INTERNAL_NET -j ACCEPT
+
+# outgoing to local net on remote interface, stuffed routing, deny
+$IPTABLES -A OUTPUT -o $EXTERNAL_INT -s $ANYWHERE -d $INTERNAL_NET -j drop-and-log-it
+
+# anything else outgoing on remote interface is valid
+$IPTABLES -A OUTPUT -o $EXTERNAL_INT -s $EXTERNAL_IP -d $ANYWHERE -j ACCEPT
+
+# DHCPd - Enable the following lines if you run an INTERNAL DHCPd server
+$IPTABLES -A OUTPUT -o $INTERNAL_INT -p tcp -s $INTERNAL_IP --sport 67 -d 255.255.255.255 --dport 68 -j ACCEPT
+$IPTABLES -A OUTPUT -o $INTERNAL_INT -p udp -s $INTERNAL_IP --sport 67 -d 255.255.255.255 --dport 68 -j ACCEPT
+
+# pop3 - Enable the following lines if you run an INTERNAL POP3 server 
+#   after all, the POP3 server has to be able to respond to people, and
+#   this rule explicitly allows it to talk via the internal interface
+$IPTABLES -A OUTPUT -o $INTERNAL_INT -p tcp -s $INTERNAL_IP --dport 110 -j ACCEPT
+$IPTABLES -A OUTPUT -o $INTERNAL_INT -p tcp -s $INTERNAL_IP --dport 995 -j ACCEPT
+
+#squid
+$IPTABLES -A OUTPUT -o $INTERNAL_INT -p tcp -s $INTERNAL_IP --dport 3128 -j ACCEPT
+
+# Catch all rule, all other outgoing is denied and logged. 
+$IPTABLES -A OUTPUT -s $ANYWHERE -d $ANYWHERE -j drop-and-log-it
+
+echo -e "   - Loading FORWARD rulesets"
+
+#####################################################################
+# FORWARD: Enable Forwarding and thus NAT
+#
+
+echo "     - FWD: Allow all connections OUT and only existing/related IN"
+$IPTABLES -A FORWARD -i $EXTERNAL_INT -o $INTERNAL_INT -m state --state ESTABLISHED,RELATED -j ACCEPT
+$IPTABLES -A FORWARD -i $INTERNAL_INT -o $EXTERNAL_INT -j ACCEPT
+
+# Catch all rule, all other forwarding is denied and logged. 
+$IPTABLES -A FORWARD -j drop-and-log-it
+
+echo "     - NAT: Enabling SNAT (MASQUERADE) functionality on $EXTERNAL_INT"
+
+#Stricter form
+$IPTABLES -t nat -A POSTROUTING -o $EXTERNAL_INT -j SNAT --to $EXTERNAL_IP
+
+#blocking these nasty old ports
+#  21				ftp
+#	135-139		Samba/SMB/MS garbage networking
+#	1433-1434	MS SQL Server
+#	4636			Opaserv
+for port in 21 109 111 135 136 137 138 139 143 857 587 901 869 918 1024 1025 1026 1027 1028 1029 1080 1433 1434 2002 2049 3128 4636 5813 6112 12345 27374 33087 ; do
+	for protocol in tcp udp; do
+		$IPTABLES -I INPUT -i $EXTERNAL_INT -s $ANYWHERE -d $ANYWHERE --protocol $protocol --dport $port -j DROP
+	done
+done
+
+# note that the above lines are INSERTING rules at the beginning of the chain,
+# so whenever we see a packet, for, say, port 2049, we drop it immediately
+# before looking at it any further.
+
+#blocking hack attempts
+for SPAZ in $(cat /etc/cracker); do
+	$IPTABLES -I INPUT -i $EXTERNAL_INT -s $SPAZ -d $ANYWHERE -j DROP
+	echo "blocking $SPAZ for attempted hacking"
+done
+
+# Again, these are inserted at the beginning, before all others, so a packet
+# has to come in on a non-blocked port, from a non-blocked IP before the
+# rest of the rules will apply to it.
+
+echo -e "\nrc.firewall-2.4 v$FWVER done.\n"
+</pre>
+
+<a class="pagelink" href="index.html">INDEX</a><br />
+
+<a class="pagelink" href="slide6.html">PREVIOUS</a><br />
+
+<a class="pagelink" href="../index.html">Master Index</a><br />
+
+</body>
+</html>
+

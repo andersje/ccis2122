@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>DNS + apache == big fun</title>
+</head>
+<body>
+<ul class='lectureslide'>
+<li>IPs are in short supply.  How do you host 50 distinct machines on one IP?</li>
+<li>using name-based virtual hosting</li>
+<li>each request contains the hostname it's trying to connect to</li>
+<li><span class='unix'>65.41.114.178 - - [23/Jan/2011:14:17:14 -0600] "GET /week1/ HTTP/1.1" 200 530 "<b>http://ccis2122.linux-classes.com/</b>" "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; InfoPath.2; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET4.0C; .NET4.0E; InfoPath.3)"</span></li>
+<li>so...give one IP addresses many CNAMEs or A records</li>
+
+<a class="pagelink" href="slide2.html">NEXT</a><br />
+
+<a class="pagelink" href="index.html">INDEX</a><br />
+
+<a class="pagelink" href="../index.html">Master Index</a><br />
+
+</body>
+</html>

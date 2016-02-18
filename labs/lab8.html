@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>Linux Admin 2 Lab for week 8:  Samba</title>
+</head>
+<body>
+<h4>Name:</h4><ol class='worksheet'>
+<li>What is Samba's primary configuration file?</li>
+<li> (3 points) Set up the /shared directory (originally created when you configured NFS) to be accessible to MS Windows clients. Get Instructor sign-off.</li>
+<li>(2 points) Show the complete [shared] entry from your samba configuration file:<br /><br /><br /></li>
+<li>Set your workgroup to be ccis2122.  What entry did you have to add to Samba's primary configuration file?</li>
+<li>Set your machinename to be your firstname. What entry did you have to add to Samba's primary configuration file?</li>
+<li>(3 points) Show the command line to access the \shares directory on the machine JDA_WORK.</li>
+<li>(4 points) Configure samba such that a username and password are required to access /shared. Add username 'jeremy' with password 'teach'. Get Instructor sign-off.</li>
+<li>(3 points) What sequence of commands would be required to add the user <em>Yeager</em>, with password of <em>Chuck</em> to Samba?  Show ALL commands, and note that Yeager does not need shell access to the server.<br /><br /></li>
+<li>What command will delete user <em>Yeager</em> from Samba only?</li>
+<li>(3 points) Show the command line required to access the share from Number 7, using <span class='unix'>smbclient</a>:<br /><br /><br /></li>
+<li>(3 points) Show the command line using the <span class='unix'>mount</span> command to mount /shared from your Samba server.<br /><br /><br /></li>
+</ol><h3>Extra Credit</h3><ol><li>(2 points) Make /shared writeable, and available only to authenticated users (such as jeremy, who you added above.<br /><br /></li>
+<li>(1 point) Ensure that authenticated users have access to their Home directories, and that those home directories are not public.<br /><br /></li>
+<li>(1 point) Make /etc available read-only to any authenticated user.<br /><br /></li>
+
+</body>
+</html>

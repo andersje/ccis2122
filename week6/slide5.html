@@ -21,12 +21,12 @@
 <body>
 <ul class='lectureslide'>
 <li>Here, we'll forward traffic from a port on our machine to a port on another machine</li>
-<li><span class='unix'>ssh -f -N -C -T -l jeremy -L 5555:www.amazon.com:80 www.angelar.com</span></li>
+<li><span class='unix'>ssh -f -N -C -T -l jeremy -L 5555:www.amazon.com:80 www.linux-classes.com</span></li>
 <li>dissecting above, via whiteboard</li>
 <!-- -f means put ssh in the background after it gets a successful login
   -N means don't execute any remote commands.  -C means compress the data.  -T disables any pty allocation, and -l forces a given username --><li>Goodbye any sort of port-based traffic filtering</li>
-<li><span class='unix'>ssh -f -N -C -T -l jeremy -L 15000:morticia.hennepintech.edu:22 www.angelar.com</span></li>
-<li>now, any connections to localhost:15000 are forwarded to morticia.hennepintech.edu, via www.angelar.com</li>
+<li><span class='unix'>ssh -f -N -C -T -l jeremy -L 15000:morticia.hennepintech.edu:22 www.linux-classes.com</span></li>
+<li>now, any connections to localhost:15000 are forwarded to morticia.hennepintech.edu, via www.linux-classes.com</li>
 
 <a class="pagelink" href="index.html">INDEX</a><br />
 

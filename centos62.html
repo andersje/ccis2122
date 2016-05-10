@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Installing CentOS 6.2 for this class</title>
+<link rel="stylesheet" type="text/css" href="class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-77508642-2', 'auto');
+      ga('send', 'pageview');
+
+      </script>
+</head>
+<body>
+  <p>Overall, the CentOS 6.2 installer is fairly self-explanatory.  This set of instructions, however, should help you get a machine upon which all the labs will function properly.</p>
+  <h4>Media Test</h4>
+  <p>Skip the media test, unless you have a few spare hours to kill.</p>
+  <h4>Language and Keyboard</h4>
+  <p>Set your language to be some form of English, as the instructors are remarkably mono-lingual.  The machines in the labs all use US English keyboard layout.</p>
+  <h4>Type of Storage Devices</h4>
+  <p>Select Basic Storage Devices.  We do not, as of yet, have SAN.</p>
+  <h4>System Name</h4>
+  <p>This is your workstation.  Give it a fun name that you'll remember.  Maybe 'spongebob' or 'fluffy.'  Be sure to look at the details of your network connection, and set it to <b>connect automatically</b>.
+  # MAY NEED NOTE ABOUT 'connect automatically' on network here</p>
+  <h4>System Clock</h4>
+  <p>The system clock does <em>Not</em> use UTC, so you should <b>uncheck</b> the box for UTC.  Set the time zone to be America/Chicago</p>
+  <h4>Root Password</h4>
+  <p>Enter an administrator password that you will remember.  It may be a good idea to write it down somewhere, as well.</p>
+  <h4>Partitioning</h4>
+  <p>select 'Use All Space' -- this will give you CentOS's default partitioning scheme.  Tell it to destroy all existing partitions.</p>
+  <h4>Software install set</h4>
+  <p>select <b>Desktop</b>, since we'll be using this as our desktop AND our server.  Click the <b>Customize Now</b> radio button, and click <b>Next</b>.  On the resultant screen, select the following things:<ul><li>Servers -&gt; CIFS file server</li><li>Servers -&gt; E-mail server</li><li>Servers -&gt; NFS file server</li><li>Servers -&gt; Network Infrastructure Server.</li><li>Virtualization -&gt; Virtualization</li><li>Virtualization -&gt; Virtualization Client</li><li>Web Services -&gt; PHP Support</li><li>Web Services -&gt; Web Server</li></ul></p>
+  <p>Under optional packages for Network Infrastructure Server, be sure to select:  the basic bind package</p>
+  <h4>Go get coffee.</h4>
+  <p>Now the software packages will install.  You'll need to be alert, since you might need to swap DVDs, but that won't happen unless you've deviated from the instructions above. </p>
+  <h4>Reboot!</h4>
+  <p>remove the DVD from the machine -- it's yours now -- and reboot.  In a few minutes, you'll have your very own CentOS workstation.</p>
+  <h4>Post boot configuration</h4>
+  /*  <h4>boot loader</h4>
+  <p>Choose the GRUB boot loader.  That should be the default.  DO NOT specify a boot loader password</p>
+  <h4>Network</h4>
+  <p>Leave the network set to Dynamic IP.  Feel free to specify your own custom hostname.</p>
+  <h4>Select Repositories</h4>
+  <p>For software installation sets, select <ul><li>Desktop-Gnome</li><li>Server</li><li>Server-GUI</li></ul>  Do NOT select <em>Extras</em>.  The system will spend a few  minutes computing dependencies, before asking you to click <em>Next</em> again.  The system will then format and preparing the disks (depending on how big your drive is), and finally begin installing software.  The software installation takes around twenty minutes, and is a great time to read the release notes.  Note that CentOS is kind enough to tell you about itself while installing.</p>
+  <h4>Wrapping up stage 1</h4>
+  <p>Remove the DVD as requested, and put it back into the protective sleeve.  Then reboot the machine.</p>
+  <h4>License Agreement</h4>
+  <p>Accept the license agreement.</p>
+  <h4>User configuration</h4>
+  <p>Add a user for yourself.  This is the user account that you will be utilizing on a day to day basis.</p>
+  <h4>Set Date &amp; Time</h4>
+  <p>Verify that the settings you put in place earlier are still correct.  Don't enable NTP.</p>
+  <h4>kdump</h4>
+  <p>Do not enable kdump.  We won't be using it for this class.</p>
+  <h4>Finish</h4>
+  <p>Time to log in with your regular user account!  After logging in, the system will run for a few minutes, and then pop up a dialog letting you know that security updates are available.  Double-click on the indicated icon in the upper right-hand corner, and enter your root password when prompted.  Eventually, all security updates will have been installed, at which point it may be necessary to reboot.  If it is, the system will inform you.</p>
+  <p>Next, we need to run a little script to standardize systems across the class.  Download the script at <a href='http://www.linux-classes.com/instructions/fix_path-centos62.bash'>http://www.linux-classes.com/instructions/fix_path-centos62.bash</a>, by right clicking on it, and selecting <em>save as</em>.  Save it to your Desktop (the default).  Next, follow these instructions:  <ul><li>Start a terminal by going to Applications-&gt; Accessories -&gt; Terminal</li><li>in the terminal, type <em>cd Desktop</em></li><li>type <em>su</em> and enter your administrator password when prompted.  It will not display as you type it, that's okay.</li><li>When your prompt changes to a #, type <em>./fix_path-centos62.bash</em></li><li>you can now close the terminal.</li></ul>.</p>
+  <p>Congratulations, you're done!</p>
+</body>
+</html>

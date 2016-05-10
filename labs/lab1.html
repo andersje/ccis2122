@@ -2,12 +2,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
 "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-	<head>
-		<link rel="stylesheet" type="text/css" href="http://linux.angelar.com/class_format.css" />
-		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-		<meta http-equiv="Content-Style-Type" content="text/css" />
-		  
-					 <title>CCIS 2122, Linux Admin 2, Lab 1 </title>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../class_format.css" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+          <title>CCIS 2122, Linux Admin 2, Lab 1 </title>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -18,37 +17,37 @@
       ga('send', 'pageview');
 
       </script>
-		  </head>
-		  <body>
-		  <h3>Name:</h3>
-		  <h3>Class Period:</h3>
-		  <ol class='worksheet'>
-					 <li>copy the file /etc/passwd into your home directory.  Show the command you used:<br /><p></li>
-					 <li>Without changing your own permissions on your home directory, give all other users the ability to change into your home directory.  Show the command you used:<br /><p></li>
-					 <li>Create a directory called sandbox under your home directory.  Show the command you used:<br /><p></li>
-					 <li>Now set the permissions on sandbox to be 755.  What are those permissions?<br /><p></li>
-					 <li>Using vi, open up the file <span class="unix">passwd</span> which is in your home directory.  Now, delete 4 lines.  Show the commands you used to do this:<br /><p><br /><p></li>
-					<li>do a long listing on the file /usr/bin/passwd.  How big is that file?<br /><p></li>
-					<li>Use the <span class="unix">file</span> command to determine the type of /usr/bin/passwd.  What is the command you used, and what was the result?<br /><p><br /><p></li>
-					<li>Show a command which will list off all processes currently running on the system:<br /><p></li>
-					<li>Modify the previous command to display the results one page at at time:<br /><p></li>
-					<li>What are the names of three currently running processes owned by root?<br /><p><br /><p></li>
-					<li>For what is the <span class="unix">find</span> command used?<br /><p></li>
-					<li>Delete the <span class="unix">passwd</span> file from your home directory.  What command did you use?<br /><p></li>
-					<li>What command is used to change your password?<br /><p></li>
-					 <li>what command would switch you to runlevel 3? <br /><p></li>
-					 <li>Name 2 commands which will reboot the system: <br /><p></li>
-					 <li>What command, given to the bootloader, will bring your system directly to single-user mode?<br /><p></li>
-					 <li>What does the <span class="unix">-f</span> flag do to shutdown? (hint:  it's not 'fast')<br /><p></li>
-					 <li>How would you command the system to shutdown completely in 20 minutes, and to display a message saying "going down for new hardware install"? <br /><p></li>
-					 <li>Name 3 services which are started at runlevel 5: <br /><p></li>
-					 <li>What is the primary difference between runlevels 3 and 5?  <br /><p></li>
-					 <li>What link in the /etc/rc.d/rc5.d directory ensures that rc.local is run?<br /><p></li>
-					 <li>What is the PID of init? <br /><p></li>
-					 <li>What program starts init?<br /><p></li>
-					 <li>Use chkconfig to prevent <span class="unix">avahi-daemon</span> from starting for runlevel 5.  What is the syntax of the command you used? <br /><p></li>
-					 <li>Now, <u>without using chkconfig</u> prevent <span class="unix">bluetooth</span> from starting at both runlevel 3 and runlevel 5.  What commands did you have to run?<br /><p><br /></li>
+      </head>
+      <body>
+      <h3>Name:</h3>
+      <h3>Class Period:</h3>
+      <ol class='worksheet'>
+           <li>copy the file /etc/passwd into your home directory.  Show the command you used:<br /><p></li>
+           <li>Without changing your own permissions on your home directory, give all other users the ability to change into your home directory.  Show the command you used:<br /><p></li>
+           <li>Create a directory called sandbox under your home directory.  Show the command you used:<br /><p></li>
+           <li>Now set the permissions on sandbox to be 755.  What are those permissions?<br /><p></li>
+           <li>Using vi, open up the file <span class="unix">passwd</span> which is in your home directory.  Now, delete 4 lines.  Show the commands you used to do this:<br /><p><br /><p></li>
+          <li>do a long listing on the file /usr/bin/passwd.  How big is that file?<br /><p></li>
+          <li>Use the <span class="unix">file</span> command to determine the type of /usr/bin/passwd.  What is the command you used, and what was the result?<br /><p><br /><p></li>
+          <li>Show a command which will list off all processes currently running on the system:<br /><p></li>
+          <li>Modify the previous command to display the results one page at at time:<br /><p></li>
+          <li>What are the names of three currently running processes owned by root?<br /><p><br /><p></li>
+          <li>For what is the <span class="unix">find</span> command used?<br /><p></li>
+          <li>Delete the <span class="unix">passwd</span> file from your home directory.  What command did you use?<br /><p></li>
+          <li>What command is used to change your password?<br /><p></li>
+           <li>what command would switch you to runlevel 3? <br /><p></li>
+           <li>Name 2 commands which will reboot the system: <br /><p></li>
+           <li>What command, given to the bootloader, will bring your system directly to single-user mode?<br /><p></li>
+           <li>What does the <span class="unix">-f</span> flag do to shutdown? (hint:  it's not 'fast')<br /><p></li>
+           <li>How would you command the system to shutdown completely in 20 minutes, and to display a message saying "going down for new hardware install"? <br /><p></li>
+           <li>Name 3 services which are started at runlevel 5: <br /><p></li>
+           <li>What is the primary difference between runlevels 3 and 5?  <br /><p></li>
+           <li>What link in the /etc/rc.d/rc5.d directory ensures that rc.local is run?<br /><p></li>
+           <li>What is the PID of init? <br /><p></li>
+           <li>What program starts init?<br /><p></li>
+           <li>Use chkconfig to prevent <span class="unix">avahi-daemon</span> from starting for runlevel 5.  What is the syntax of the command you used? <br /><p></li>
+           <li>Now, <u>without using chkconfig</u> prevent <span class="unix">bluetooth</span> from starting at both runlevel 3 and runlevel 5.  What commands did you have to run?<br /><p><br /></li>
 
-				 </ol>
-			 </body>
+         </ol>
+       </body>
  </html>

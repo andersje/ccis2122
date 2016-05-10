@@ -2,10 +2,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
 "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-	<head>
-		<link rel="stylesheet" type="text/css" href="http://linux.angelar.com/class_format.css" />
-		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-		<meta http-equiv="Content-Style-Type" content="text/css" />
+  <head>
+  <link rel="stylesheet" type="text/css" href="../class_format.css" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -16,11 +16,11 @@
       ga('send', 'pageview');
 
       </script>
-	<title>User, Group, Filesystem Lab, Linux 2</title></head>
-	<body>
-		<h3>Name:</h3>
-		<ol class='worksheet'>
-			<li>(12 points)  Add the following users with the following characteristics.  Note that you may have to create groups.  It does not matter what commands or methods you use to create the users, as long as they are created according to the specifications below.
+  <title>User, Group, Filesystem Lab, Linux 2</title></head>
+  <body>
+    <h3>Name:</h3>
+    <ol class='worksheet'>
+      <li>(12 points)  Add the following users with the following characteristics.  Note that you may have to create groups.  It does not matter what commands or methods you use to create the users, as long as they are created according to the specifications below.
 <table border=1>
 <tr>
 <th>username</th>
@@ -30,76 +30,76 @@
 <th>additional groups</th>
 </tr>
 <tr>
-	<td>larry</td>
-	<td>larry7</td>
-	<td>/bin/bash</td>
-	<td>larry</td>
-	<td>stooge</td>
+  <td>larry</td>
+  <td>larry7</td>
+  <td>/bin/bash</td>
+  <td>larry</td>
+  <td>stooge</td>
 </tr>
 <tr>
-	<td>curly</td>
-	<td>curly6</td>
-	<td>/bin/bash</td>
-	<td>curly</td>
-	<td>stooge</td>
+  <td>curly</td>
+  <td>curly6</td>
+  <td>/bin/bash</td>
+  <td>curly</td>
+  <td>stooge</td>
 </tr>
 <tr>
-	<td>moe</td>
-	<td>howard</td>
-	<td>/bin/bash</td>
-	<td>moe</td>
-	<td>stooge</td>
+  <td>moe</td>
+  <td>howard</td>
+  <td>/bin/bash</td>
+  <td>moe</td>
+  <td>stooge</td>
 </tr>
 <tr>
-	<td>shemp</td>
-	<td>howie2</td>
-	<td>/bin/bash</td>
-	<td>stooge</td>
-	<td></td>
+  <td>shemp</td>
+  <td>howie2</td>
+  <td>/bin/bash</td>
+  <td>stooge</td>
+  <td></td>
 </tr>
 <tr>
-	<td>harpo</td>
-	<td>silent</td>
-	<td>/bin/bash</td>
-	<td>harpo</td>
-	<td>marx</td>
+  <td>harpo</td>
+  <td>silent</td>
+  <td>/bin/bash</td>
+  <td>harpo</td>
+  <td>marx</td>
 </tr>
 <tr>
-	<td>chico</td>
-	<td>tweettweet</td>
-	<td>/bin/sh</td>
-	<td>chico</td>
-	<td>marx</td>
+  <td>chico</td>
+  <td>tweettweet</td>
+  <td>/bin/sh</td>
+  <td>chico</td>
+  <td>marx</td>
 </tr>
 <tr>
-	<td>groucho</td>
-	<td>tobacc0</td>
-	<td>/bin/bash</td>
-	<td>groucho</td>
-	<td>marx</td>
+  <td>groucho</td>
+  <td>tobacc0</td>
+  <td>/bin/bash</td>
+  <td>groucho</td>
+  <td>marx</td>
 </tr>
 <tr>
-	<td>zeppo</td>
-	<td>lost</td>
-	<td>/bin/bash</td>
-	<td>zeppo</td>
-	<td>marx</td>
+  <td>zeppo</td>
+  <td>lost</td>
+  <td>/bin/bash</td>
+  <td>zeppo</td>
+  <td>marx</td>
 </tr>
 </table>
 </li>
-	<li> What command will find all files owned by the user <em>zeppo</em>, anywhere on the filesystem?<br /></li>
-	<li> What command would delete shemp and his home directory?</li>
-	<li> On redhat-derived systems (such as CentOS, Fedora and Mandriva), what are two configuration files for the useradd command?</li>
-	<li> Configure your system so that all users by default create files with permissions of 600.  What entry did you put in which file?</li>
-	<li> show the syntax of the tail command to show the last 25 lines of /var/log/messages.</li>
-	<li> What is one reason unmounting a filesystem may fail?</li>
-	<li> Why shouldn't you run fsck on a mounted filesystem?</li>
-	<li> What command will display the MAC address of your NIC?</li>
-	<li> If you were to add 10.10.2.1 as your first nameserver, what file would you have to alter?</li>
-	<li> show the syntax of the command to ping the IP address 127.127.0.1 exactly <em>twice</em></li>
-	<li> Using traceroute, determine how many hops there are between your classroom system and <em>www.hennepintech.edu</em></li>
-	<li> Show the syntax of the command to send pings as fast as possible.  You may want to experiment with various flags to see which is fastest.<br /></li>
-	<li>What command or keystroke will interrupt a running command (such as a ping?)</li>
+  <li> What command will find all files owned by the user <em>zeppo</em>, anywhere on the filesystem?<br /></li>
+  <li> What command would delete shemp and his home directory?</li>
+  <li> On redhat-derived systems (such as CentOS, Fedora and Mandriva), what are two configuration files for the useradd command?</li>
+  <li> Configure your system so that all users by default create files with permissions of 600.  What entry did you put in which file?</li>
+  <li> show the syntax of the tail command to show the last 25 lines of /var/log/messages.</li>
+  <li> What is one reason unmounting a filesystem may fail?</li>
+  <li> Why shouldn't you run fsck on a mounted filesystem?</li>
+  <li> What command will display the MAC address of your NIC?</li>
+  <li> If you were to add 10.10.2.1 as your first nameserver, what file would you have to alter?</li>
+  <li> show the syntax of the command to ping the IP address 127.127.0.1 exactly <em>twice</em></li>
+  <li> Using traceroute, determine how many hops there are between your classroom system and <em>www.hennepintech.edu</em></li>
+  <li> Show the syntax of the command to send pings as fast as possible.  You may want to experiment with various flags to see which is fastest.<br /></li>
+  <li>What command or keystroke will interrupt a running command (such as a ping?)</li>
 </ol>
 </body>
 </html>

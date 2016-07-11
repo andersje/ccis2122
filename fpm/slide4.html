@@ -1,0 +1,43 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="../class_format.css" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>Make a terrible RPM</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-77508642-2', 'auto');
+      ga('send', 'pageview');
+
+      </script>
+</head>
+<body>
+<ul class='lectureslide'>
+	<li>Here's our basic steps:<br/>
+	<ol>
+		<li>make a dir tree of what you want to package</li>
+		<li>Run this command, from the parent of that directory:<br />
+		<pre>fpm -s dir -t rpm --name myLousyPackage</pre><br/>
+		Your package will be in myLousyPackage-1.0-1.x86_64.rpm</li>
+		<li>consider adding pre/post config scripts</li>
+		<li>Check it all into git</li>
+	</ol>
+	<li>Anyone want a live demo of this?</li>
+</ul>
+
+<a class="pagelink" href="slide5.html">NEXT</a><br />
+
+<a class="pagelink" href="slide3.html">PREVIOUS</a><br />
+
+<a class="pagelink" href="../index.html">Master Index</a><br />
+
+</body>
+</html>
